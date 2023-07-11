@@ -1,6 +1,21 @@
 # FizzBuzz
 
-**TODO: Add description**
+**Explaining the problem**
+
+● Multiples of 3 replaced by Fizz
+
+● Multiples of 5 replaced by Buzz
+
+● Multiples of 3 and 5 replaced by FizzBuzz
+
+- [1, 2, 3, 4, 5,15] [1, 2, Fizz, 4, Buzz, FizzBuzz]
+
+- [1, 2, 4, 8,10] [1, 2, 4, 8, Buzz]
+
+## Details
+
+We will read the list of numbers from a file!
+- If the file does not exist, we will display an error message
 
 ## Installation
 
