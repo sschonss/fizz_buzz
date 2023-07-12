@@ -6,12 +6,32 @@ defmodule FizzBuzz do
     |> handle_file_read
   end
 
-  def handle_file_read({:ok, content}) do 
-    content
-    |>String.split(",")
-    |> Enum.map(&String.to_integer/1)
+  defp handle_file_read({:ok, content}) do 
+    result =
+      content
+      |>String.split(",")
+      |> Enum.map(&convert_and_evaluate_numbers/1)
+
+    {:ok, result}
   end
 
-  def handle_file_read({:error, reason}), do: "Error: #{reason}"
+  defp handle_file_read({:error, reason}), do: {:error,"Error reading file: #{reason}"}
+
+
+  defp convert_and_evaluate_numbers(elem) do
+    elem
+    |> String.to_integer
+    |> evaluate_number
+  end
+
+  defp evaluate_number(number) do
+    cond do
+      rem(number, 15) == 0 -> "FizzBuzz"
+      rem(number, 3) == 0 -> "Fizz"
+      rem(number, 5) == 0 -> "Buzz"
+      true -> number
+    end
+  end
+
 
 end
